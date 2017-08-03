@@ -70,6 +70,12 @@ set(mkvmuxer_sources
     "${LIBWEBM_SRC_DIR}/mkvmuxer/mkvwriter.h"
     "${LIBWEBM_SRC_DIR}/common/webmids.h")
 
+set(mkvmuxer_headers
+    "${LIBWEBM_SRC_DIR}/mkvmuxer/mkvmuxer.h"
+    "${LIBWEBM_SRC_DIR}/mkvmuxer/mkvmuxertypes.h"
+    "${LIBWEBM_SRC_DIR}/mkvmuxer/mkvmuxerutil.h"
+    "${LIBWEBM_SRC_DIR}/mkvmuxer/mkvwriter.h")
+
 set(mkvmuxer_sample_sources
     "${LIBWEBM_SRC_DIR}/mkvmuxer_sample.cc"
     "${LIBWEBM_SRC_DIR}/sample_muxer_metadata.cc"
@@ -428,3 +434,10 @@ if (ENABLE_IWYU)
     message(STATUS "  See README.libwebm for more information.")
   endif ()
 endif ()
+
+INSTALL(TARGETS webm
+        DESTINATION "lib"
+        )
+INSTALL(FILES ${mkvmuxer_headers}
+        DESTINATION "include"
+        )
